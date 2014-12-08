@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative "detectPlagiarism.rb"
 require 'set'
 
-class TestDetectPlagiarism < MiniTest::Unit::TestCase
+class TestDetectPlagiarism < MiniTest::Test
   def setup
     
   end
@@ -146,10 +146,7 @@ class TestDetectPlagiarism < MiniTest::Unit::TestCase
   end
 
   #test initialize() method
-  def test_that_constructor_3
-     actual = DetectPlagiarism::PlagiarismPair.new("file1", "file2", 2000000000)
-     assert_equal("file1", actual.fileName1)
-     assert_equal("file2", actual.fileName2)
-     assert_equal(2000000000, actual.numOfSameNPhrases)
+  def test_that_constructor_wrong_arguments
+     assert_raises(ArgumentError) {DetectPlagiarism::PlagiarismPair.new("file1", "file2")}
   end
 end
