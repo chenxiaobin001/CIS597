@@ -138,15 +138,6 @@ class TestDetectPlagiarism < MiniTest::Unit::TestCase
   end
 
   #test initialize() method
-  def test_that_constructor_1
-     actual = DetectPlagiarism::PlagiarismPair.new("file1", "file2", 2)
-     assert_equal("file1", actual.fileName1)
-     assert_equal("file2", actual.fileName2)
-     assert_equal(2, actual.numOfSameNPhrases)
-  end
-
-
-  #test initialize() method
   def test_that_constructor_2
      actual = DetectPlagiarism::PlagiarismPair.new("file1", "PlagiarismFile#%@!#()", 200)
      assert_equal("file1", actual.fileName1)
