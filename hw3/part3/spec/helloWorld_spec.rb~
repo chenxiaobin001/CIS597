@@ -179,12 +179,21 @@ describe "helloWorld spec" do
 
     it "returns all countries that have certain hazard in given continent" do
 
- #     expect(actual).to eql(["Argentina"])
-      expect { @solution.s1_search_natural_hazards("South America", "earthquake") }.to output("===================================================================================
-getting countries in continent: 'South America'that are prone to natural hazard'earthquake':
------------------------------------------------------------------------------------
-Argentina").to_stdout
+      expect { @solution.s1_search_natural_hazards("South America", "earthquake") }.to output("===================================================================================\ngetting countries in continent: 'South America'that are prone to natural hazard'earthquake':\n-----------------------------------------------------------------------------------\nArgentina   \n").to_stdout
     end
+
+    it "returns all countries that have lowest elevation point in given continent" do
+
+      expect { @solution.s2_search_lowest_elevation_point("Asia") }.to output("===================================================================================\ngetting countries' elevation point in continent: 'Asia':\n-----------------------------------------------------------------------------------\nin continent: asia, these countries have lowest elevation:\nAfghanistan  258\n========================================================================\n").to_stdout
+    end
+
+    it "returns all countries in given hemisphere" do
+
+      expect { @solution.s3_search_hemisphere("southerneast") }.to output("===================================================================================\neast west line: 160E 20W\nnorth south line: equator\ngetting countries in'southerneast' hemisphere...\n-----------------------------------------------------------------------------------\nAngola\nArgentina\nAshmore and Cartier Islands\nAustralia\nBouvet Island\nFrench Southern and Antarctic Lands\nHeard Island and McDonald Islands\n").to_stdout
+    end
+    
+
+
   end
 
 end

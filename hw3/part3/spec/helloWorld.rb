@@ -120,20 +120,21 @@ class Solution
       end
       
     end
-#    helper_save
+ #   helper_save
     puts "========================================================================"
     puts "========================================================================"
     puts "==============================start parsing============================="
     puts "========================================================================"
     puts "========================================================================"
   end
-=begin  
+  
   # tmp func
+=begin
   def helper_save
     @tmp_lists = Hash.new []
     File.open "countries.yml", "w" do |f|
       @country_lists.each do |key, array|
-           for i in 0..2
+           for i in 0...1
      #        country = CountryInfo.new(@country_lists[key][i].country_name, @country_lists[key][i].country_URL, " ")
              @tmp_lists[key] += [@country_lists[key][i]]
            end

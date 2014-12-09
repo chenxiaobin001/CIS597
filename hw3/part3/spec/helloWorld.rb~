@@ -133,7 +133,7 @@ class Solution
     @tmp_lists = Hash.new []
     File.open "countries.yml", "w" do |f|
       @country_lists.each do |key, array|
-           for i in 0..2
+           for i in 0...1
      #        country = CountryInfo.new(@country_lists[key][i].country_name, @country_lists[key][i].country_URL, " ")
              @tmp_lists[key] += [@country_lists[key][i]]
            end
@@ -141,6 +141,7 @@ class Solution
       f.write YAML.dump(@tmp_lists)
     end
   end
+
   # print all countries
   def print_all_countries
     @country_lists.each do |country|
@@ -517,9 +518,9 @@ end
 
 
 s = Solution.new
-=begin
-s.get_all_countries
 
+s.get_all_countries
+=begin
 #puts country_lists.keys
 s.s1_search_natural_hazards("South America", "earthquake")
 s.s2_search_lowest_elevation_point("Europe")
