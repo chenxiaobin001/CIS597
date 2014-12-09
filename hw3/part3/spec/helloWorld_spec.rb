@@ -222,6 +222,7 @@ describe "helloWorld spec" do
 
       expect { @solution.s8_search_top_coastline(3)}.to output("===================================================================================\ngetting top 3 countries by length of coastline\n-----------------------------------------------------------------------------------\nArgentina  4989\nAlgeria  998\nAmerican Samoa  116\n").to_stdout
     end
+
  
   end
 
