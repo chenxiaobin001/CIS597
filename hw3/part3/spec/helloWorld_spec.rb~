@@ -177,23 +177,52 @@ describe "helloWorld spec" do
       expect { tmpSolution.print_all_countries }.to output("Afghanistan\t\n\n").to_stdout
     end
 
-    it "returns all countries that have certain hazard in given continent" do
+    it "prints all countries that have certain hazard in given continent" do
 
       expect { @solution.s1_search_natural_hazards("South America", "earthquake") }.to output("===================================================================================\ngetting countries in continent: 'South America'that are prone to natural hazard'earthquake':\n-----------------------------------------------------------------------------------\nArgentina   \n").to_stdout
     end
 
-    it "returns all countries that have lowest elevation point in given continent" do
+    it "prints all countries that have lowest elevation point in given continent" do
 
       expect { @solution.s2_search_lowest_elevation_point("Asia") }.to output("===================================================================================\ngetting countries' elevation point in continent: 'Asia':\n-----------------------------------------------------------------------------------\nin continent: asia, these countries have lowest elevation:\nAfghanistan  258\n========================================================================\n").to_stdout
     end
 
-    it "returns all countries in given hemisphere" do
+    it "prints all countries in given hemisphere" do
 
-      expect { @solution.s3_search_hemisphere("southerneast") }.to output("===================================================================================\neast west line: 160E 20W\nnorth south line: equator\ngetting countries in'southerneast' hemisphere...\n-----------------------------------------------------------------------------------\nAngola\nArgentina\nAshmore and Cartier Islands\nAustralia\nBouvet Island\nFrench Southern and Antarctic Lands\nHeard Island and McDonald Islands\n").to_stdout
+      expect { @solution.s3_search_hemisphere("southerneast") }.to output("===================================================================================\neast west line: 160E 20W\nnorth south line: equator\ngetting countries in'southerneast' hemisphere...\n-----------------------------------------------------------------------------------\nArgentina\nBouvet Island\n").to_stdout
     end
-    
+      
+    it "prints all countries that have more than given # parties in given continent" do
+
+      expect { @solution.s4_search_party_number("Africa", 1) }.to output("===================================================================================\ngetting countries' that have more than 1 parties in continent: 'Africa':\n-----------------------------------------------------------------------------------\nAlgeria\n").to_stdout
+    end
+
+    it "prints top # countries in energy consumption" do
+
+      expect { @solution.s5_search_top_electricity_consumption(3) }.to output("===================================================================================\ngetting top 3 countries with highest electricity consumption per capita:\n-----------------------------------------------------------------------------------\nBermuda  9162.623979731383\nAmerican Samoa  3229.225680293865\nArgentina  2445.379044429885\n").to_stdout
+    end
+
+    it "prints countries that have domain religion more than given #" do
+
+      expect { @solution.s6_search_domain_religion(true, 80) }.to output("===================================================================================\ngetting countries with domain religion 'more than' 80: %\n-----------------------------------------------------------------------------------\nAnguilla [\"Protestant \"]\nArgentina [\"nominally Roman Catholic \"]\nAlgeria [\"Sunni Muslim \"]\n").to_stdout
+    end
+
+    it "prints countries that have domain religion less than given #" do
+
+      expect { @solution.s6_search_domain_religion(false, 50) }.to output("===================================================================================\ngetting countries with domain religion 'less than' 50: %\n-----------------------------------------------------------------------------------\nBermuda [\"Protestant \", \" African Methodist Episcopal \", \" Seventh-Day Adventist \", \" other Protestant \", \" Roman Catholic \", \" other \", \" unspecified \", \" none \"]\n").to_stdout
+    end
+
+    it "prints countries that are landlocked" do
+
+      expect { @solution.s7_search_landlocked() }.to output("===================================================================================\ngetting countries which is landlocked by a single country\n-----------------------------------------------------------------------------------\n").to_stdout
+    end
 
 
+    it "prints countries that have top # coastline" do
+
+      expect { @solution.s8_search_top_coastline(3)}.to output("===================================================================================\ngetting countries which is landlocked by a single country\n-----------------------------------------------------------------------------------\n").to_stdout
+    end
+ 
   end
 
 end
