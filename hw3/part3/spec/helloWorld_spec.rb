@@ -176,6 +176,12 @@ describe "helloWorld spec" do
       tmpSolution.country_lists = [@solution.country_lists['asia'][0]]
       expect { tmpSolution.print_all_countries }.to output("Afghanistan\t\n\n").to_stdout
     end
+
+    it "returns all countries that have certain hazard in given continent" do
+
+ #     expect(actual).to eql(["Argentina"])
+      expect { @solution.s1_search_natural_hazards("South America", "earthquake") }.to output("===================================================================================\ngetting countries in continent: 'South America'that are prone to natural hazard'earthquake':\n-----------------------------------------------------------------------------------\nArgentina   \n").to_stdout
+    end
   end
 
 end
