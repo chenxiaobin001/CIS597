@@ -116,6 +116,12 @@ describe "helloWorld spec" do
     it "returns a Solution object" do
       expect(@solution).to be_a Solution
     end
+
+    it "returns correct continent information" do
+      country_doc = @solution.country_lists['asia'][0].country_doc
+      continent = @solution.get_continent(country_doc)
+      expect(continent).to eql("Asia")
+    end
     
   end
 

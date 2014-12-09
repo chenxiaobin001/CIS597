@@ -517,9 +517,9 @@ end
 
 
 s = Solution.new
-
-s.get_all_countries
 =begin
+s.get_all_countries
+
 #puts country_lists.keys
 s.s1_search_natural_hazards("South America", "earthquake")
 s.s2_search_lowest_elevation_point("Europe")

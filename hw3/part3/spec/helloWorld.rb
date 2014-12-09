@@ -120,14 +120,14 @@ class Solution
       end
       
     end
-    helper_save
+#    helper_save
     puts "========================================================================"
     puts "========================================================================"
     puts "==============================start parsing============================="
     puts "========================================================================"
     puts "========================================================================"
   end
-  
+=begin  
   # tmp func
   def helper_save
     @tmp_lists = Hash.new []
@@ -141,6 +141,7 @@ class Solution
       f.write YAML.dump(@tmp_lists)
     end
   end
+=end
   # print all countries
   def print_all_countries
     @country_lists.each do |country|
