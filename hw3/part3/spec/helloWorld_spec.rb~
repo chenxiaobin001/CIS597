@@ -200,6 +200,13 @@ describe "helloWorld spec" do
         expect { tmpSolution.print_all_countries }.to output("Afghanistan\t\n\n").to_stdout
       end
     end
+      
+    describe "#get_all_countries" do
+      it "gets countries information" do
+         solution = Solution.new()
+         expect { solution.get_all_countries }.to output.to_stdout
+      end
+    end
 
     describe "#s1_search_natural_hazards(target_continent, target_word)" do 
       it "prints all countries that have certain hazard in given continent" do
@@ -264,11 +271,6 @@ describe "helloWorld spec" do
       end
     end
   
-    describe "#get_all_countries" do
-      it "gets countries information" do
-         expect { @solution.get_all_countries }.to output.to_stdout
-      end
-    end
   end
 
 end

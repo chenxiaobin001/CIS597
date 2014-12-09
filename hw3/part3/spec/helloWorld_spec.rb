@@ -203,7 +203,8 @@ describe "helloWorld spec" do
       
     describe "#get_all_countries" do
       it "gets countries information" do
-         expect { @solution.get_all_countries }.to output.to_stdout
+         solution = Solution.new()
+         expect { solution.get_all_countries }.to output.to_stdout
       end
     end
 
