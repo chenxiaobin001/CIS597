@@ -501,6 +501,7 @@ end
 
 
 s = Solution.new
+=begin
 s.get_all_countries
 
 #puts country_lists.keys
@@ -513,3 +514,5 @@ s.s6_search_domain_religion(true, 80)
 s.s6_search_domain_religion(false, 50)
 s.s7_search_landlocked()
 s.s8_search_top_coastline(10)
+
+=end
