@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require 'json'
 
 describe "helloWorld spec" do
 
@@ -8,11 +9,13 @@ describe "helloWorld spec" do
       @countryComparable = CountryComparable.new("thisCountry", 1)
       @countryComparable1 = CountryComparable.new("thisCountry", 2)
     end
-
-    it "takes two parameters and returns a CountryComparable object" do
-      expect(@countryComparable).to be_a CountryComparable
+    
+    describe "#new" do
+      it "takes two parameters and returns a CountryComparable object" do
+        expect(@countryComparable).to be_a CountryComparable
+      end
     end
-
+    
     it "returns the correct country name" do
       expect(@countryComparable.country_name).to eql('thisCountry')
     end
@@ -82,6 +85,38 @@ describe "helloWorld spec" do
     it "takes two parameters and returns a GeographicCoordinates object" do
       expect(@geographicCoordinates).to be_a GeographicCoordinates
     end
+  end
+
+  #this part of spec is for CountryInfo class in helloWorld.rb
+  describe "CountryInfo basics" do
+    before :each do
+      @countryInfo = CountryInfo.new("country", "www.doogle.com", "hello_world")
+    end
+
+    it "takes three parameters and returns a CountryInfo object" do
+      expect(@countryInfo).to be_a CountryInfo
+    end
+  end
+
+
+  #this part of spec is for Solution class in helloWorld.rb
+  describe "Solution basics" do
+    before :all do
+      @countries = Hash.new []
+      ss = YAML.load_file('countries.yml')
+      @countries = ss
+
+   #   puts @countries.size()	
+    end
+    before :each do
+      @solution = Solution.new 
+      @solution.country_lists = @countries
+    end
+
+    it "returns a Solution object" do
+      expect(@solution).to be_a Solution
+    end
+    
   end
 
 end

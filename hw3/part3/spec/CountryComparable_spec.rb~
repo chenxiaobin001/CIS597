@@ -82,9 +82,16 @@ describe "helloWorld spec" do
     it "takes two parameters and returns a GeographicCoordinates object" do
       expect(@geographicCoordinates).to be_a GeographicCoordinates
     end
+  end
 
-    it "returns the correct string" do
-      expect(@latitude.to_s).to eql("20 S")
+  #this part of spec is for CountryInfo class in helloWorld.rb
+  describe "CountryInfo basics" do
+    before :each do
+      @countryInfo = CountryInfo.new("country", "www.doogle.com", "hello_world")
+    end
+
+    it "takes three parameters and returns a GeographicCoordinates object" do
+      expect(@CountryInfo).to be_a CountryInfo
     end
   end
 
