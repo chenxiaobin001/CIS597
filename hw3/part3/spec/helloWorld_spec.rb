@@ -42,7 +42,7 @@ describe "helloWorld spec" do
   
 
   #this part of spec is for Longitude class in helloWorld.rb
-  describe Longitude do
+  describe "Longitude basics" do
     before :each do
       @longitude = Longitude.new("E", 20)
     end
@@ -55,4 +55,33 @@ describe "helloWorld spec" do
       expect(@longitude.to_s).to eql("20 E")
     end
   end
+
+  #this part of spec is for Latitude class in helloWorld.rb
+  describe "Latitude basics" do
+    before :each do
+      @latitude = Latitude.new("S", 20)
+    end
+
+    it "takes two parameters and returns a Latitude object" do
+      expect(@latitude).to be_a Latitude
+    end
+
+    it "returns the correct string" do
+      expect(@latitude.to_s).to eql("20 S")
+    end
+  end
+
+  #this part of spec is for GeographicCoordinates class in helloWorld.rb
+  describe "GeographicCoordinates basics" do
+    before :each do
+      @latitude = GeographicCoordinates.new("S", 20)
+      @longitude = Longitude.new("E", 20)
+      @geographicCoordinates = GeographicCoordinates.new(@latitude, @longitude)
+    end
+
+    it "takes two parameters and returns a GeographicCoordinates object" do
+      expect(@geographicCoordinates).to be_a GeographicCoordinates
+    end
+  end
+
 end
