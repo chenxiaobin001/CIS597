@@ -8,8 +8,9 @@
 require 'nokogiri'
 require 'open-uri'
 require 'uri'
-
-
+require 'yaml'
+require 'rubygems'
+require 'json'
 # a class to record a country name and elevation point
 
 class CountryComparable
@@ -117,14 +118,31 @@ class Solution
         continent.downcase!
         @country_lists[continent] += [country]
       end
+      
     end
+ #   helper_save
     puts "========================================================================"
     puts "========================================================================"
     puts "==============================start parsing============================="
     puts "========================================================================"
     puts "========================================================================"
   end
-
+  
+  # tmp func
+=begin
+  def helper_save
+    @tmp_lists = Hash.new []
+    File.open "countries.yml", "w" do |f|
+      @country_lists.each do |key, array|
+           for i in 0...1
+     #        country = CountryInfo.new(@country_lists[key][i].country_name, @country_lists[key][i].country_URL, " ")
+             @tmp_lists[key] += [@country_lists[key][i]]
+           end
+      end
+      f.write YAML.dump(@tmp_lists)
+    end
+  end
+=end
   # print all countries
   def print_all_countries
     @country_lists.each do |country|
@@ -501,6 +519,7 @@ end
 
 
 s = Solution.new
+=begin
 s.get_all_countries
 
 #puts country_lists.keys
@@ -513,3 +532,4 @@ s.s6_search_domain_religion(true, 80)
 s.s6_search_domain_religion(false, 50)
 s.s7_search_landlocked()
 s.s8_search_top_coastline(10)
+=end
