@@ -77,7 +77,7 @@ describe "helloWorld spec" do
   #this part of spec is for GeographicCoordinates class in helloWorld.rb
   describe "GeographicCoordinates basics" do
     before :each do
-      @latitude = GeographicCoordinates.new("S", 20)
+      @latitude = Latitude.new("S", 20)
       @longitude = Longitude.new("E", 20)
       @geographicCoordinates = GeographicCoordinates.new(@latitude, @longitude)
     end
@@ -123,6 +123,59 @@ describe "helloWorld spec" do
       expect(continent).to eql("Asia")
     end
     
+    it "returns correct hemisphere information SE" do
+      latitude = Latitude.new("S", 30)
+      longitude = Longitude.new("E", 30)
+      geographicCoordinates = GeographicCoordinates.new(latitude, longitude)
+      actual = @solution.get_hemisphere(geographicCoordinates)
+      expect(actual).to eql("southeast")
+    end
+  
+    it "returns correct hemisphere information WN" do
+      latitude = Latitude.new("N", 30)
+      longitude = Longitude.new("W", 0)
+      geographicCoordinates = GeographicCoordinates.new(latitude, longitude)
+      actual = @solution.get_hemisphere(geographicCoordinates)
+      expect(actual).to eql("northwest")
+    end  
+
+    it "returns true if the string contains given string" do
+      actual = @solution.str_include?("this is test", "test")  
+      expect(actual).to eql(true)
+    end 
+
+    it "returns false if the string does not contain given string" do
+      actual = @solution.str_include?("this is test", "test1")  
+      expect(actual).to eql(false)
+    end
+  
+    it "returns correct value when computing consumption trillion" do
+      actual = @solution.compute_consumption(1, "trillion") 
+      expect(actual).to eql(1e12)
+    end   
+
+    it "returns correct value when computing consumption billion" do
+      actual = @solution.compute_consumption(1, "billion") 
+      expect(actual).to eql(1e9)
+    end
+    
+    it "returns correct value when computing consumption million" do
+      actual = @solution.compute_consumption(1, "million") 
+      expect(actual).to eql(1e6)
+    end
+
+    it "returns true if country belongs to given continent" do
+      country = @solution.country_lists['asia'][0]
+      actual = @solution.is_belong_to?(country, "asia")
+      expect(actual).to eql(true)
+    end
+
+
+    it "prints all countries's name in the list" do
+      tmpSolution = @solution
+      tmpSolution.country_lists = [@solution.country_lists['asia'][0]]
+      expect { tmpSolution.print_all_countries }.to output("Afghanistan\t\n\n").to_stdout
+    end
   end
 
 end
