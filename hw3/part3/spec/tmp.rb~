@@ -1,6 +1,0 @@
-require 'open-uri'
-require 'uri'
-
-open('af1.txt', 'wb') do |file|
-      file <<  open(%Q|https://www.cia.gov/library/publications/the-world-factbook/print/../geos/countrytemplate_af.html|).read 
-    end

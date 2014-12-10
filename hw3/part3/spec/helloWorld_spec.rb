@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe "helloWorld spec" do
 
-  puts "start testing: it may take some time because of Internet communication"
+  puts "start testing: it may take some time because of Internet communication (prepared test_cases are in folder 'testCases'\n make sure this folder is present before running test!)"
   #this part of spec is for CountryComparable class in helloWorld.rb
   describe CountryComparable do
     before :each do
