@@ -108,7 +108,7 @@ class Solution
       new_url = (country_url.split('/')[0..-2]).join('/')
       country_url = new_url << '/' << item['href']
       puts "#{country_name}"
-      f = open(country_url)
+      f = open(country_url)     
       doc = f.read()
       f.close()
       country = CountryInfo.new(country_name, country_url, doc)

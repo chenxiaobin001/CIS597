@@ -29,6 +29,6 @@ Now 'helloWorld.rb' only contains classes and methods and the coverage is about 
 
 2. about the test cases.
 
-I prepared some test cases in the yaml file 'countries.yml', these test cases are prepared for some of the test methods, so you need to keep that file in the same folder in order to run the tests.
+I prepared some test cases in the folder 'testCases', these test cases are prepared for some of the test methods, so you need to keep that folder in the current folder in order to run the tests correctly.
 
 

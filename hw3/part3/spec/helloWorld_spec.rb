@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'json'
 
 describe "helloWorld spec" do
 
@@ -114,7 +113,7 @@ describe "helloWorld spec" do
   describe "Solution basics" do
     before :all do
       @countries = Hash.new []
-      ss = YAML.load_file('countries.yml')
+      ss = YAML.load_file('testCases/countries.yml')
       @countries = ss
 
    #   puts @countries.size()	

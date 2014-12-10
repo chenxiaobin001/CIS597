@@ -103,7 +103,7 @@ class Solution
     f1 = open(@CIA_URL)
     doc = Nokogiri::HTML(f1)
     open('countries.txt', 'wb') do |file|
-      file << open(@CIA_URL)
+      file << open(@CIA_URL).read
     end
     doc.css("ul#GetAppendix_TextVersion li a").each do |item|
       country_name = item.text

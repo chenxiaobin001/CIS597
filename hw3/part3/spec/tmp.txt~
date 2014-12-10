@@ -1,0 +1,9 @@
+require 'open-uri'
+require 'uri'
+File.open("af1.txt") do |filea|
+  File.open(%Q|https://www.cia.gov/library/publications/the-world-factbook/print/../geos/countrytemplate_af.html|) do |fileb|
+    while line = fileb.gets
+      filea.puts line.length
+    end
+  end
+end
